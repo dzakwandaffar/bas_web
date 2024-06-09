@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Anda berhasil login, silahkan pilih menu transfer untuk melakukan transaksi</h1>
   </div>
 </template>
 

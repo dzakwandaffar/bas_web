@@ -1,31 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import HeaderV1 from './components/HeaderV1.vue'
+// import HeaderV1 from './components/HeaderV1.vue'
 import { reactive } from 'vue';
 import { useAuthStore } from './stores/auth';
-import { useTransferStore } from './stores/transfer';
+// import { useTransferStore } from './stores/transfer';
 
 const auth = useAuthStore()
-const transfer = useTransferStore()
+// const transfer = useTransferStore()
 
 const data = reactive({ //reactive untuk langsung merubah tampilan web, tanpa refresh.. misal counter langsung berubah
-  variable1: "test variable",
-  counter: 1,
-  variable2: [1, 2, 3, 4]
+  // variable1: "test variable",
+  // counter: 1,
+  // variable2: [1, 2, 3, 4]
 })
 
-const tambahCounter = () => {
-  data.counter++
-}
+// const tambahCounter = () => {
+//   data.counter++
+// }
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/logobankhope.png" width="125" height="100" />
 
     <div class="wrapper">
-      <HeaderV1 :text="'Hello Vue, Bung Ahay'">
+      <!-- <HeaderV1 :text="'Hello Vue, Bung Ahay'">
         <button @click="tambahCounter">Tambah Counter</button>
         Ini "Slot" Punya Bung Ahay {{ data.counter }}
         <p>
@@ -34,16 +34,16 @@ const tambahCounter = () => {
         <template #part1_header="{param1}">
           <h2>{{ param1 }}</h2>
         </template>
-      </HeaderV1>
+      </HeaderV1> -->
       {{ data.variable1 }}
       {{ data.variable2 }}
-      <HelloWorld msg="You did it, Bung Ahay!" />
+      <HelloWorld msg="Welcome to Bank Hope!" />
 
       <nav>
         <RouterLink v-if="auth.isLoggedIn" to="/">Home</RouterLink>
         <RouterLink v-if="auth.isLoggedIn" to="/about">About</RouterLink>
         <RouterLink v-if="!auth.isLoggedIn" to="/login">Login</RouterLink>
-        <RouterLink v-if="!transfer.isTransfer" to="/transfer">Transfer</RouterLink>
+        <RouterLink v-if="auth.isLoggedIn" to="/transfer">Transfer</RouterLink>
       </nav>
     </div>
   </header>
@@ -61,13 +61,13 @@ header {
   max-height: 100vh;
   background-color: rgb(255, 240, 249);
   color: black;
-  /* background-image: url("://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWSruTBvhdO4vCw5RkWG7mExNtt2stXzcouQ&s") */
+  /* background-image: url("https://img.freepik.com/premium-vector/banking-finance-concept-illustration_387612-169.jpg") */
 }
 
 .logo {
   display: block;
   margin: 0 auto 2rem;
-  border: 10px solid rgb(188, 50, 215)
+  /* border: 10px solid rgb(188, 50, 215) */
 }
 
 nav {
