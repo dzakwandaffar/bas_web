@@ -4,8 +4,10 @@ import HelloWorld from './components/HelloWorld.vue'
 import HeaderV1 from './components/HeaderV1.vue'
 import { reactive } from 'vue';
 import { useAuthStore } from './stores/auth';
+import { useTransferStore } from './stores/transfer';
 
 const auth = useAuthStore()
+const transfer = useTransferStore()
 
 const data = reactive({ //reactive untuk langsung merubah tampilan web, tanpa refresh.. misal counter langsung berubah
   variable1: "test variable",
@@ -41,6 +43,7 @@ const tambahCounter = () => {
         <RouterLink v-if="auth.isLoggedIn" to="/">Home</RouterLink>
         <RouterLink v-if="auth.isLoggedIn" to="/about">About</RouterLink>
         <RouterLink v-if="!auth.isLoggedIn" to="/login">Login</RouterLink>
+        <RouterLink v-if="!transfer.isTransfer" to="/transfer">Transfer</RouterLink>
       </nav>
     </div>
   </header>
@@ -56,7 +59,7 @@ slop{
 header {
   line-height: 1.5;
   max-height: 100vh;
-  background-color: azure;
+  background-color: rgb(255, 240, 249);
   color: black;
   /* background-image: url("://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWSruTBvhdO4vCw5RkWG7mExNtt2stXzcouQ&s") */
 }
@@ -64,7 +67,7 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
-  border: 10px solid red
+  border: 10px solid rgb(188, 50, 215)
 }
 
 nav {
